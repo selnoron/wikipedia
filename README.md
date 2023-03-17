@@ -1,1 +1,1 @@
-<img src="static/smile.webm">
+<img src="static/smile.webp">
