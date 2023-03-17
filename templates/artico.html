@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ art.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_main.css') }}">
+    <link rel="stylesheet" href="../static/css/style_main.css">
+</head>
+<body>
+    <div class="article2">
+        <div class="header">
+            <div class="hd">LAST UPDATER: {{ art.user_name }}</div>
+            <div class="hd">GENRE: {{ art.genre }}</div>
+            <div class="hd">{{ art.time }}</div>
+        </div>
+        <div class="midlle">
+            <span class="title">{{ art.title }}</span>
+        </div>
+        <div class="footer">
+            <div class="tx_cont">
+                {{ art.text_content }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

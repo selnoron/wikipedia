@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wikipedia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_main.css') }}">
+    <link rel="stylesheet" href="../static/css/style_main.css">
+</head>
+<body>
+    <a href="/create">CREATE ARTICLE</a> <br>
+    <form action="/articles" method="post">
+        <input type="text" name="search" placeholder="Search"> 
+        <input list="genres-list" name="genre">
+        <datalist id="genres-list">
+            {% for genre in genres %}
+            <option>{{ genre }}</option>
+            {% endfor %}
+        </datalist> 
+        <input type="submit" value="SEARCH">
+    </form>
+    <br>
+    {% for art in articles %}
+    <div class="article">
+        <div class="header">
+            <div class="hd">LAST UPDATER: {{ art.user_name }}</div>
+            <div class="hd">GENRE: {{ art.genre }}</div>
+            <div class="hd">{{ art.time }}</div>
+        </div>
+        <div class="midlle">
+            <a href="/artico/{{ articles.index(art) }}" class="title">{{ art.title }}</a>
+            <a href="/update/{{ articles.index(art) }}"> update it </a>
+        </div>
+        <div class="footer">
+            <div class="tx_cont">
+                {{ art.text_content }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
